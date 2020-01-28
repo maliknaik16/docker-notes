@@ -29,3 +29,10 @@ services:
       # Ex:
       #    - <VARIABLE_NAME>=<VALUE>
       - <VARIABLE_NAME>=<VALUE>
+    # With `env_file` key you can specify the file from which to read variable
+    # names and values.
+    # It can take one or more file paths.
+    # Use this when you want to use the same environment variables on multiple
+    # containers.
+    env_file:
+      - ./mysql.settings
