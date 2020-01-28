@@ -1,0 +1,11 @@
+# MySQL Database Settings
+# You can refer to the mysql environment variables on the official image of
+# mysql on Docker hub: https://hub.docker.com/_/mysql/
+#
+# This file uses the format similar to shell format for defining the
+# environment variables.
+
+MYSQL_ROOT_PASSWORD=root
+MYSQL_DATABASE=mydb
+MYSQL_USER=admin
+MYSQL_PASSWORD=1234
