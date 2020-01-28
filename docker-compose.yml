@@ -1,0 +1,31 @@
+# Here you specify the version of the docker-compose
+version: '3'
+services:
+  # The key is the service name.
+  <SERVICE_NAME>:
+    image: imageName
+    # List of path mapping from Host OS to Container.
+    volumes:
+      # The best practice is to use relative paths for the source(host OS) path,
+      # and an absolute path for the target(container) path.
+      - /path/on/host:/path/on/guest
+      # There are 3 types of synchronization strategy and they are:
+      #  faster
+      #    ^
+      #    |    1. Delegated (delegated) |
+      #    |    2. Cached (cached)       |
+      #    |    3. Consistent (default)  |
+      #                                  v
+      #                                safer
+      # Ex:
+      #   - ./docroot:/var/www/html:cached
+      - /path/on/host:/path/on/guest:<SYNC_STRATEGY>
+    # We can set static values as environment variables in the this file
+    # using the `environment` key.
+    environment:
+      <VARIABLE_NAME>: <VALUE>
+      # Another way to specify variable definition is using the shell format
+      # as follows:
+      # Ex:
+      #    - <VARIABLE_NAME>=<VALUE>
+      - <VARIABLE_NAME>=<VALUE>
