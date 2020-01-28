@@ -1,3 +1,4 @@
+# Source: https://drupalize.me/series/drupal-development-docker
 # Here you specify the version of the docker-compose
 version: '3'
 services:
@@ -36,3 +37,16 @@ services:
     # containers.
     env_file:
       - ./mysql.settings
+    # Use the `ports` key to expose the container's port.
+    ports:
+      - 80
+      - 443
+      # We can also map ports from Host OS to container as follows:
+      #   portOnHost:portInContainer
+      #
+      # The following port mapping maps the port 8080 on the Host OS to the
+      # port 80 on the container.
+      #
+      # Note: Always use port mappings if possible, even if the port numbers
+      # are the same.
+      - "8080:80"
